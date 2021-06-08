@@ -2,16 +2,16 @@ import * as React from 'react'
 
 import Navbar from "../components/navbar.js"
 import Footer from "../components/footer"
-import HomePage from "../components/page-components/home-page"
+import ProjectsPage from "../components/page-components/projects-page"
 
-const IndexPage = () => {
+const Projects = () => {
   return (
     <>
       <Navbar />
-      <HomePage />
+      <ProjectsPage />
       <Footer />
     </>
   )
 }
 
-export default IndexPage
+export default Projects

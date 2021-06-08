@@ -10,6 +10,13 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
+    {
+      resolve: `@chakra-ui/gatsby-plugin`,
+      options: {
+        resetCSS: true,
+        isUsingColorMode: true,
+      },
+    },
     `gatsby-transformer-remark`,
   ],
 };
