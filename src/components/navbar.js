@@ -60,7 +60,7 @@ export default function Navbar() {
           >
             <Avatar
               size={"md"}
-              src={"https://media-exp1.licdn.com/dms/image/C5603AQH6QhvYQQugVg/profile-displayphoto-shrink_200_200/0/1554682844496?e=1628726400&v=beta&t=d2jARnOBAH5S-P5BUaCQqe2kJ_ouBXDfbCtsWVqZ178"}
+              src={"https://i.imgur.com/2SQNLtR.jpg"}
             />
             <Text fontSize="25px" fontWeight="bold">
               Wai Chun Leung
