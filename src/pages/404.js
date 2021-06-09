@@ -9,14 +9,9 @@ import {
 } from '@chakra-ui/react';
 import { HiArrowNarrowRight } from "react-icons/hi";
 
-import Navbar from "../components/navbar.js"
-import Footer from "../components/footer"
-
-// markup
 const NotFoundPage = () => {
   return (
     <>
-      <Navbar />
       <Stack direction={{ base: 'column', md: 'row' }}>
         <Flex p={8} flex={1} align={'center'} justify={'center'}>
           <Stack spacing={6} w={'100%'} maxW={800}>
@@ -50,7 +45,6 @@ const NotFoundPage = () => {
           </Stack>
         </Flex>
       </Stack>
-      <Footer />
     </>
   )
 }

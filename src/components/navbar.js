@@ -31,6 +31,7 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import resumeFile from "../static/resume.pdf";
+import avatarIcon from "../static/avatar.jpg";
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -60,7 +61,7 @@ export default function Navbar() {
           >
             <Avatar
               size={"md"}
-              src={"https://i.imgur.com/2SQNLtR.jpg"}
+              src={avatarIcon}
             />
             <Text fontSize="25px" fontWeight="bold">
               Wai Chun Leung
