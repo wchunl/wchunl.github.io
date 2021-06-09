@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
-
 import {
   Box,
   Flex,
@@ -8,9 +7,9 @@ import {
   HStack,
   IconButton,
   Button,
-  Icon,
   Text,
   Menu,
+  Link as CLink,
   MenuButton,
   MenuList,
   MenuItem,
@@ -32,27 +31,6 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import resumeFile from "../static/resume.pdf";
-
-const links = [
-  { name: "Projects", path: "/projects" },
-  { name: "Resume", href: resumeFile },
-];
-
-const NavLink = (props) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.900'),
-    }}
-    to={props.path}
-    href={props.href}
-  >
-    {props.name}
-  </Link>
-);
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -94,15 +72,34 @@ export default function Navbar() {
             spacing={4}
             display={{ base: 'none', md: 'flex' }}
           >
-            {links.map((link, href, index) => (
-              <NavLink
-                key={index}
-                name={link.name}
-                path={link.path}
-                href={link.href}
-                onClose={onClose}
-              />
-            ))}
+            <Button
+              as={Link}
+              variant={"ghost"}
+              px={2}
+              py={1}
+              rounded={'md'}
+              _hover={{
+                textDecoration: 'none',
+                bg: useColorModeValue('gray.200', 'gray.900'),
+              }}
+              to={"/projects"}
+            >
+              {"Projects"}
+            </Button>
+            <Button
+              as={CLink}
+              variant={"ghost"}
+              px={2}
+              py={1}
+              rounded={'md'}
+              _hover={{
+                textDecoration: 'none',
+                bg: useColorModeValue('gray.200', 'gray.900'),
+              }}
+              href={resumeFile}
+            >
+              {"Resume"}
+            </Button>
             <Menu>
               <MenuButton
                 variant="ghost"
@@ -115,22 +112,22 @@ export default function Navbar() {
                 Connect With Me
               </MenuButton>
               <MenuList>
-                <Link to="https://github.com/wchunl" isExternal>
+                <CLink href="https://github.com/wchunl">
                   <MenuItem>
                     <HStack>
                       <FaGithub size={18}/>
                       <Text>Github</Text>
                     </HStack>
                   </MenuItem>
-                </Link>
-                <Link to="https://www.linkedin.com/in/wai-chun-leung-a55745171" isExternal>
+                </CLink>
+                <CLink href="https://www.linkedin.com/in/wai-chun-leung-a55745171">
                   <MenuItem>
                     <HStack>
                       <FaLinkedin size={18}/>
                       <Text>LinkedIn</Text>
                     </HStack>
                   </MenuItem>
-                </Link>
+                </CLink>
               </MenuList>
             </Menu>
           </HStack>
@@ -146,26 +143,29 @@ export default function Navbar() {
       {isOpen ? (
         <Box pb={4} display={{ md: 'none' }}>
           <Stack as={'nav'} spacing={4}>
-            {links.map((link, index) => (
-              <NavLink
-                key={index}
-                name={link.name}
-                path={link.path}
-                onClose={onClose}
-              />
-            ))}
-            <Link to="https://github.com/wchunl" isExternal>
+            <CLink
+              as={Link}
+              to={"/projects"}
+            >
+              {"Projects"}
+            </CLink>
+            <CLink
+              href={resumeFile}
+            >
+              {"Resume"}
+            </CLink>
+            <CLink href="https://github.com/wchunl">
               <HStack>
                 <FaGithub size={18}/>
                 <Text>Github</Text>
               </HStack>
-            </Link>
-            <Link to="https://www.linkedin.com/in/wai-chun-leung-a55745171" isExternal>
+            </CLink>
+            <CLink href="https://www.linkedin.com/in/wai-chun-leung-a55745171">
               <HStack>
                 <FaLinkedin size={18}/>
                 <Text>LinkedIn</Text>
               </HStack>
-            </Link>
+            </CLink>
           </Stack>
         </Box>
       ) : null}

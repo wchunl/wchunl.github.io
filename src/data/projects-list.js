@@ -49,7 +49,7 @@ export const appsList = [
 
 export const gamesList = [
   {
-    id: 1,
+    id: 6,
     title: "Bomblebees",
     link: "https://github.com/aith/bomblebees",
     desc: `Designed and developed a 3D multiplayer action game using Unity.

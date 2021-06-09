@@ -1,11 +1,8 @@
 import * as React from "react";
 import {
-  Stack,
   IconButton,
-  Link,
   Box,
-  Text,
-  useColorModeValue,
+  Link,
   Flex
 } from "@chakra-ui/react";
 import siteConfig from "./configs/site-config";
@@ -28,14 +25,17 @@ const Footer = () => {
         mx="auto"
       >
         <Box fontSize="md" textAlign="left">
-          Built with Gatsby & Chakra
+          Built with
+          <Link href={"https://www.gatsbyjs.com/"}> Gatsby </Link>
+          &
+          <Link href={"https://chakra-ui.com/"}> Chakra </Link>
         </Box>
         <Box textAlign="center">
           {siteConfig.author.accounts.map((sc, index) => (
             <IconButton
               key={index}
               as={Link}
-              isExternal
+              // isExternal
               href={sc.url}
               aria-label={sc.label}
               size="lg"

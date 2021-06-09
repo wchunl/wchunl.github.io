@@ -6,6 +6,7 @@ import {
   SimpleGrid,
   SlideFade,
   Text,
+  Link as CLink,
   Stack,
   Icon,
   Spacer,
@@ -15,7 +16,7 @@ import {
   CgServer,
   CgDatabase,
 } from "react-icons/cg";
-
+import resumeFile from "../../static/resume.pdf";
 
 import Hero from "../hero";
 import Card from "../card";
@@ -51,9 +52,9 @@ const HomePage = () => {
         </SimpleGrid>
         <Stack direction={{ base: 'column', md: 'row' }} spacing={4} py={10}>
           <Spacer/>
-          <Link to="/resume">
+          <CLink href={resumeFile}>
             <Button rounded={'full'}>See All Skills</Button>
-          </Link>
+          </CLink>
         </Stack>
         <Box as="h1" mt={10} mb={6} fontSize="3xl" fontWeight="bold" textAlign="left">
           <Text>Featured Projects</Text>

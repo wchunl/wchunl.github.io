@@ -7,8 +7,6 @@ import {
   Tag,
   Link,
 } from "@chakra-ui/react";
-// import { getTagColor } from "style/theme";
-// import LazyImage from "./lazy-image";
 
 export const getTagColor = type => {
   type = type.toLowerCase()
@@ -25,7 +23,6 @@ export const getTagColor = type => {
   } else if (type === "postgresql") {
     return "purple";
   }
-  
 };
 
 export default function ProjectCard ({
@@ -67,8 +64,8 @@ export default function ProjectCard ({
                 {title}
               </Text>
               <HStack spacing="1">
-                {technologies.map(tech => (
-                  <Tag colorScheme={getTagColor(tech)} size="sm">
+                {technologies.map((tech, index) => (
+                  <Tag key={index} colorScheme={getTagColor(tech)} size="sm">
                     {tech}
                   </Tag>
                 ))}

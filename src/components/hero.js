@@ -1,15 +1,16 @@
 import * as React from 'react'
-import { Link } from "gatsby";
 import {
   Button,
   Flex,
   Heading,
+  Link,
   Stack,
   Text,
 } from '@chakra-ui/react';
 import { HiArrowNarrowRight } from "react-icons/hi";
+import resumeFile from "../static/resume.pdf";
 
-export default function SplitScreen() {
+export default function Hero() {
   return (
     <Stack direction={{ base: 'column', md: 'row' }}>
       <Flex p={8} flex={1} align={'center'} justify={'center'}>
@@ -32,7 +33,7 @@ export default function SplitScreen() {
             I am also a hobbyist video game designer and developer! Check out my projects below.
           </Text>
           <Stack direction={{ base: 'column', md: 'row' }} spacing={4} align="center">
-            <Link to="/resume">
+            <Link href={resumeFile}>
               <Button
                 rounded={'full'}
                 bg={'blue.400'}

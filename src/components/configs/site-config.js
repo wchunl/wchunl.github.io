@@ -1,12 +1,8 @@
 import * as React from "react";
 import {
   FaGithub,
-  FaDev,
   FaLinkedin,
-  FaQuora,
-  FaTwitter
 } from "react-icons/fa";
-import { FiMail } from "react-icons/fi";
 
 const siteConfig = {
     copyright: `Copyright © ${new Date().getFullYear()} Muhammad Ahmad. All Rights Reserved.`,

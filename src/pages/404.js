@@ -1,53 +1,57 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import * as React from 'react'
+import { Link } from 'gatsby'
+import {
+  Button,
+  Flex,
+  Heading,
+  Stack,
+  Text,
+} from '@chakra-ui/react';
+import { HiArrowNarrowRight } from "react-icons/hi";
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+import Navbar from "../components/navbar.js"
+import Footer from "../components/footer"
 
 // markup
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
+    <>
+      <Navbar />
+      <Stack direction={{ base: 'column', md: 'row' }}>
+        <Flex p={8} flex={1} align={'center'} justify={'center'}>
+          <Stack spacing={6} w={'100%'} maxW={800}>
+            <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
+              <Text
+                as={'span'}
+                position={'relative'}
+                fontSize='30px'
+              >
+                Oops! The page you have requested does not exist!
+              </Text>
+            </Heading>
+            <Text fontSize={{ base: 'md', lg: 'lg' }}>
+              Click the button below to head back to the home page!
+            </Text>
+            <Stack direction={{ base: 'column', md: 'row' }} spacing={4} align="center">
+              <Link to="/">
+                <Button
+                  rounded={'full'}
+                  bg={'blue.400'}
+                  color={'white'}
+                  _hover={{
+                    bg: 'blue.500',
+                  }}
+                  rightIcon={<HiArrowNarrowRight />}
+                >
+                  Back to home page
+                </Button>
+              </Link>
+            </Stack>
+          </Stack>
+        </Flex>
+      </Stack>
+      <Footer />
+    </>
   )
 }
 

@@ -1,11 +1,11 @@
 import * as React from "react";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 import {
   Box,
-  Button,
   Center,
   Heading,
   Text,
+  Link,
   Image,
   Stack,
   Spacer,
@@ -69,7 +69,6 @@ export default function Card({
         <Stack mt={8} direction={'row'} spacing={4} align={'center'} fontSize={"sm"}>
           <Spacer/>
           <Link
-            isExternal
             px={2}
             py={1}
             rounded={'md'}
@@ -77,12 +76,11 @@ export default function Card({
               textDecoration: 'none',
               bg: useColorModeValue('gray.200', 'gray.900'),
             }}
-            to={codesrc}
+            href={codesrc}
           >
             {codesrc ? "Source Code" : ""}
           </Link>
           <Link
-            isExternal
             px={2}
             py={1}
             rounded={'md'}
@@ -90,7 +88,7 @@ export default function Card({
               textDecoration: 'none',
               bg: useColorModeValue('gray.200', 'gray.900'),
             }}
-            to={demosrc}
+            href={demosrc}
           >
             {demosrc ? "View Site" : ""}
           </Link>
