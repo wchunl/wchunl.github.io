@@ -26,8 +26,9 @@ export default function Card({
       <MotionBox
         whileHover={{ y: -5 }}
         maxW={'445px'}
+        // h="500px"
         w={'full'}
-        bg={useColorModeValue('white', 'gray.900')}
+        bg={useColorModeValue('white', 'gray.800')}
         _hover={{ shadow: "xl" }}
         boxShadow={'lg'}
         rounded={'md'}
@@ -35,12 +36,16 @@ export default function Card({
         overflow={'hidden'}>
         <Box
           h={'210px'}
-          bg={'gray.100'}
+          bg={useColorModeValue('gray.100', 'gray.700')}
           mt={-6}
           mx={-6}
           mb={6}
-          pos={'relative'}>
+          // pos={'relative'}
+          >
           <Image
+            h={'210px'}
+            w={'full'}
+            objectFit="scale-down"
             src={imgsrc}
           />
         </Box>
@@ -61,9 +66,10 @@ export default function Card({
           </Heading>
           {children}
         </Stack>
-        <Stack mt={6} direction={'row'} spacing={4} align={'center'} fontSize={"sm"}>
+        <Stack mt={8} direction={'row'} spacing={4} align={'center'} fontSize={"sm"}>
           <Spacer/>
           <Link
+            isExternal
             px={2}
             py={1}
             rounded={'md'}
@@ -76,6 +82,7 @@ export default function Card({
             {codesrc ? "Source Code" : ""}
           </Link>
           <Link
+            isExternal
             px={2}
             py={1}
             rounded={'md'}
@@ -85,7 +92,7 @@ export default function Card({
             }}
             to={demosrc}
           >
-            {demosrc ? "View Demo" : ""}
+            {demosrc ? "View Site" : ""}
           </Link>
         </Stack>
       </MotionBox>

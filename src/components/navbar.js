@@ -18,6 +18,7 @@ import {
   useColorMode,
   useColorModeValue,
   Stack,
+  Spacer,
 } from '@chakra-ui/react';
 import { 
   HamburgerIcon,
@@ -30,10 +31,11 @@ import {
   FaGithub,
   FaLinkedin,
 } from "react-icons/fa";
+import resumeFile from "../static/resume.pdf";
 
 const links = [
   { name: "Projects", path: "/projects" },
-  { name: "Resume", path: "/resume" },
+  { name: "Resume", href: resumeFile },
 ];
 
 const NavLink = (props) => (
@@ -46,6 +48,7 @@ const NavLink = (props) => (
       bg: useColorModeValue('gray.200', 'gray.900'),
     }}
     to={props.path}
+    href={props.href}
   >
     {props.name}
   </Link>
@@ -58,7 +61,7 @@ export default function Navbar() {
   return (
     <Box bg={useColorModeValue('gray.100', 'gray.700')} px={4} boxShadow={"lg"}>
       <Flex
-        h={16}
+        h={20}
         alignItems={"center"}
         justifyContent={"space-between"}
         w={["95%", "90%", "85%"]}
@@ -73,37 +76,32 @@ export default function Navbar() {
           onClick={isOpen ? onClose : onOpen}
         />
         <HStack spacing={8} align={'center'}>
-          <Button
-            variant="ghost"
-            rounded={'1x1'}
+          <HStack spacing={2}
+            as={Link}
+            to={"/"}
           >
-            
             <Avatar
-              as={Link}
-              size={"sm"}
-              to={"/"}
-              // src={"https://avatars2.githubusercontent.com/u/37842853?v=4"}
+              size={"md"}
+              src={"https://media-exp1.licdn.com/dms/image/C5603AQH6QhvYQQugVg/profile-displayphoto-shrink_200_200/0/1554682844496?e=1628726400&v=beta&t=d2jARnOBAH5S-P5BUaCQqe2kJ_ouBXDfbCtsWVqZ178"}
             />
-          </Button>
+            <Text fontSize="25px" fontWeight="bold">
+              Wai Chun Leung
+            </Text>
+          </HStack>
+          <Spacer/>
           <HStack
             as={'nav'}
             spacing={4}
             display={{ base: 'none', md: 'flex' }}
           >
-            {links.map((link, index) => (
-              <Button
-                variant="ghost"
-                px={2}
-                py={1}
-                rounded={'md'}
-              >
-                <NavLink
-                  key={index}
-                  name={link.name}
-                  path={link.path}
-                  onClose={onClose}
-                />
-              </Button>
+            {links.map((link, href, index) => (
+              <NavLink
+                key={index}
+                name={link.name}
+                path={link.path}
+                href={link.href}
+                onClose={onClose}
+              />
             ))}
             <Menu>
               <MenuButton
@@ -156,6 +154,18 @@ export default function Navbar() {
                 onClose={onClose}
               />
             ))}
+            <Link to="https://github.com/wchunl" isExternal>
+              <HStack>
+                <FaGithub size={18}/>
+                <Text>Github</Text>
+              </HStack>
+            </Link>
+            <Link to="https://www.linkedin.com/in/wai-chun-leung-a55745171" isExternal>
+              <HStack>
+                <FaLinkedin size={18}/>
+                <Text>LinkedIn</Text>
+              </HStack>
+            </Link>
           </Stack>
         </Box>
       ) : null}

@@ -12,17 +12,20 @@ import {
 
 export const getTagColor = type => {
   type = type.toLowerCase()
-  if (type === "rails" || type === "ruby") {
+  if (type === "python" || type === "flask") {
     return "red";
   } else if (type === "react") {
     return "cyan";
   } else if (type === "javascript") {
     return "yellow";
-  } else if (type === "typescript" || type === "tailwindcss") {
+  } else if (type === "node" || type === "express" || type === "docker") {
     return "blue";
-  } else if (type === "chakraui" || type === "css") {
+  } else if (type === "c++" || type === "c") {
     return "teal";
+  } else if (type === "postgresql") {
+    return "purple";
   }
+  
 };
 
 export default function ProjectCard ({
